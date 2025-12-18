@@ -1,0 +1,465 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #FFEDE1;
+    font-family: 'Inter', sans-serif;
+    min-height: 100vh;
+    display: flex;
+    overflow-x: hidden;
+}
+
+/* Фоновая картинка справа */
+.background-image {
+    position: fixed;
+    right: 0;
+    top: 0;
+    width: 60%;
+    height: 100vh;
+    background-image: url('../images/бронирование стола.jpg'); /* Замените на ваше изображение */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    z-index: 0;
+}
+
+/* Основной контент */
+.main-content {
+    width: 40%;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 40px;
+    position: relative;
+    z-index: 1;
+}
+
+/* Контейнер формы */
+.form-container {
+    background: linear-gradient(135deg, 
+        rgba(220, 156, 101, 0.9) 0%, 
+        rgba(172, 91, 65, 0.85) 51%, 
+        rgba(220, 156, 101, 0.9) 100%);
+    border-radius: 10px;
+    padding: 40px;
+    width: 550px;
+    max-width: 100%;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+}
+
+/* Иконка */
+.booking-icon {
+    width: 60px;
+    height: 60px;
+    background-image: url('../images/2.svg');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    margin-bottom: 10px;
+    margin-top: -20px;
+}
+
+/* Заголовок */
+.form-title {
+    font-family: 'Inter', sans-serif;
+    font-weight: 300;
+    font-size: 32px;
+    letter-spacing: 4px;
+    text-align: center;
+    color: #000000;
+    margin-bottom: 10px;
+    width: 100%;
+}
+
+/* Линия под заголовком */
+.title-line {
+    width: 516px;
+    max-width: 100%;
+    height: 2px;
+    background-color: #000000;
+    border-radius: 2px;
+    margin-bottom: 40px;
+}
+
+/* Сообщения об ошибках/успехе */
+.message {
+    width: 100%;
+    padding: 15px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+    text-align: center;
+    font-weight: 400;
+    font-size: 16px;
+}
+
+.error-message {
+    background-color: rgba(255, 0, 0, 0.1);
+    color: #d32f2f;
+    border: 1px solid #ffcdd2;
+}
+
+.success-message {
+    background-color: rgba(76, 175, 80, 0.1);
+    color: #388e3c;
+    border: 1px solid #c8e6c9;
+}
+
+/* Форма */
+.booking-form {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+/* Поле формы */
+.form-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-label {
+    font-family: 'Inter', sans-serif;
+    font-weight: 400;
+    font-size: 24px;
+    letter-spacing: 1px;
+    color: #000000;
+    margin-bottom: 10px;
+    text-align: left;
+}
+
+.form-input {
+    width: 440px;
+    max-width: 100%;
+    height: 82px;
+    background-color: #FFFFFF;
+    border: none;
+    border-radius: 8px;
+    padding: 0 20px;
+    font-family: 'Inter', sans-serif;
+    font-weight: 300;
+    font-size: 18px;
+    letter-spacing: 2px;
+    color: rgba(0, 0, 0, 0.7);
+}
+
+.form-input::placeholder {
+    color: rgba(0, 0, 0, 0.7);
+}
+
+.form-input:focus {
+    outline: none;
+    box-shadow: 0 0 0 2px rgba(172, 91, 65, 0.5);
+}
+
+/* Кнопка */
+.submit-button {
+    width: 335px;
+    height: 62px;
+    background-color: #000000;
+    color: #FFFFFF;
+    border: none;
+    border-radius: 45px;
+    font-family: 'Inter', sans-serif;
+    font-size: 20px;
+    font-weight: 400;
+    letter-spacing: 1px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-top: 20px;
+    align-self: center;
+}
+
+.submit-button:hover {
+    background-color: #333333;
+    transform: translateY(-2px);
+}
+
+.submit-button:active {
+    transform: translateY(0);
+}
+
+/* Ссылки */
+.form-links {
+    margin-top: 30px;
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+}
+
+.form-link {
+    color: #000000;
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: 400;
+    padding: 8px 16px;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+}
+
+.form-link:hover {
+    background-color: rgba(0, 0, 0, 0.1);
+}
+
+/* Адаптивность для мобильных устройств */
+@media (max-width: 1024px) {
+    body {
+        flex-direction: column;
+        overflow-y: auto;
+    }
+
+    .background-image {
+        position: fixed;
+        width: 100%;
+        height: 100vh;
+        z-index: 0;
+        opacity: 0.9;
+    }
+
+    .main-content {
+        width: 100%;
+        padding: 20px;
+        min-height: 100vh;
+        justify-content: flex-start;
+        padding-top: 40px;
+        z-index: 2;
+    }
+
+    .form-container {
+        width: 100%;
+        max-width: 500px;
+        padding: 35px 25px;
+        margin: 0 auto;
+        background: linear-gradient(135deg, 
+            rgba(220, 156, 101, 0.95) 0%, 
+            rgba(172, 91, 65, 0.92) 51%, 
+            rgba(220, 156, 101, 0.95) 100%);
+        backdrop-filter: blur(5px);
+        -webkit-backdrop-filter: blur(5px);
+    }
+
+    .form-title {
+        font-size: 28px;
+        letter-spacing: 3px;
+        margin-bottom: 15px;
+    }
+
+    .title-line {
+        width: 100%;
+        margin-bottom: 35px;
+    }
+
+    .form-input {
+        width: 100%;
+        height: 70px;
+        font-size: 18px;
+        padding: 0 18px;
+    }
+
+    .form-label {
+        font-size: 22px;
+        margin-bottom: 12px;
+    }
+
+    .submit-button {
+        width: 300px;
+        height: 58px;
+        font-size: 19px;
+        margin-top: 25px;
+    }
+
+    .booking-icon {
+        width: 55px;
+        height: 55px;
+        margin-bottom: 15px;
+        margin-top: -15px;
+    }
+
+    .form-links {
+        margin-top: 35px;
+        flex-wrap: wrap;
+    }
+
+    .form-link {
+        font-size: 15px;
+        padding: 10px 18px;
+    }
+}
+
+@media (max-width: 768px) {
+    .form-container {
+        max-width: 420px;
+        padding: 30px 20px;
+    }
+
+    .form-title {
+        font-size: 26px;
+        letter-spacing: 2px;
+    }
+
+    .form-label {
+        font-size: 20px;
+    }
+
+    .form-input {
+        height: 65px;
+        font-size: 17px;
+    }
+
+    .submit-button {
+        width: 280px;
+        height: 56px;
+        font-size: 18px;
+    }
+
+    .booking-icon {
+        width: 50px;
+        height: 50px;
+    }
+}
+
+@media (max-width: 480px) {
+    .main-content {
+        padding: 15px;
+        padding-top: 30px;
+    }
+
+    .form-container {
+        max-width: 100%;
+        padding: 25px 18px;
+        border-radius: 8px;
+    }
+
+    .form-title {
+        font-size: 24px;
+        letter-spacing: 1.5px;
+    }
+
+    .title-line {
+        margin-bottom: 30px;
+    }
+
+    .form-label {
+        font-size: 18px;
+        margin-bottom: 10px;
+    }
+
+    .form-input {
+        height: 60px;
+        font-size: 16px;
+        padding: 0 15px;
+        border-radius: 6px;
+    }
+
+    .submit-button {
+        width: 260px;
+        height: 54px;
+        font-size: 17px;
+        border-radius: 40px;
+        margin-top: 20px;
+    }
+
+    .booking-icon {
+        width: 45px;
+        height: 45px;
+        margin-bottom: 12px;
+        margin-top: -10px;
+    }
+
+    .form-links {
+        margin-top: 30px;
+        gap: 15px;
+    }
+
+    .form-link {
+        font-size: 14px;
+        padding: 8px 16px;
+    }
+
+    .message {
+        padding: 12px;
+        font-size: 15px;
+        margin-bottom: 18px;
+    }
+}
+
+@media (max-width: 360px) {
+    .form-title {
+        font-size: 22px;
+    }
+
+    .form-label {
+        font-size: 17px;
+    }
+
+    .form-input {
+        height: 56px;
+        font-size: 15px;
+    }
+
+    .submit-button {
+        width: 240px;
+        height: 52px;
+        font-size: 16px;
+    }
+
+    .booking-form {
+        gap: 18px;
+    }
+}
+
+/* Особые стили для очень маленьких экранов */
+@media (max-width: 320px) {
+    .form-container {
+        padding: 20px 15px;
+    }
+
+    .form-title {
+        font-size: 20px;
+    }
+
+    .form-label {
+        font-size: 16px;
+    }
+
+    .submit-button {
+        width: 220px;
+    }
+
+    .form-links {
+        flex-direction: column;
+        gap: 12px;
+        align-items: center;
+    }
+}
+
+/* Портретная ориентация для мобильных */
+@media (max-width: 768px) and (orientation: portrait) {
+    .main-content {
+        padding-top: 25px;
+    }
+    
+    .form-container {
+        margin-bottom: 30px;
+    }
+}
+
+/* Ландшафтная ориентация для мобильных */
+@media (max-width: 768px) and (orientation: landscape) {
+    .main-content {
+        padding-top: 20px;
+        padding-bottom: 20px;
+    }
+    
+    .form-container {
+        max-width: 380px;
+    }
+}
